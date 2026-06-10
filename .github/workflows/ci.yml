@@ -1,0 +1,40 @@
+name: CI
+on:
+  pull_request:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: hashicorp/setup-terraform@v3
+      # Optional config-level WAF/structural gate. Uncomment to run at PR time
+      # (requires `pip install fabricdeploy`).
+      # - run: |
+      #     pip install fabricdeploy
+      #     fabricdeploy validate fabric.yaml
+      #     fabricdeploy plan fabric.yaml
+      - run: terraform fmt -check -recursive
+      - uses: ./.github/actions/tf-validate
+        with:
+          root: capacities/dev/foundation
+      - uses: ./.github/actions/tf-validate
+        with:
+          root: capacities/dev/platform
+      - uses: ./.github/actions/tf-validate
+        with:
+          root: capacities/dev/content
+      - uses: ./.github/actions/tf-validate
+        with:
+          root: capacities/prod/foundation
+      - uses: ./.github/actions/tf-validate
+        with:
+          root: capacities/prod/platform
+      - uses: ./.github/actions/tf-validate
+        with:
+          root: capacities/prod/content
+      - uses: ./.github/actions/tf-validate
+        with:
+          root: bootstrap
