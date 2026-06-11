@@ -1,4 +1,4 @@
-# fabricdeploy artifact v1.0.0 | tool 0.1.0 | generated 2026-06-10
+# fabricdeploy artifact v1.0.1 | tool 0.1.0 | generated 2026-06-11
 # Resolved WAF values for capacity 'dev' (nonprod).
 # These reflect the guardrails applied by the WAF resolver. See AUDIT.md.
 # (Keep this variable list in sync with render/context.py:waf_tfvars_rows — the

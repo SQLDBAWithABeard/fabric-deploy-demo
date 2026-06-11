@@ -1,4 +1,4 @@
-# fabricdeploy artifact v1.0.0 | tool 0.1.0 | generated 2026-06-10
+# fabricdeploy artifact v1.0.1 | tool 0.1.0 | generated 2026-06-11
 variable "sku" {
   type = string
 }

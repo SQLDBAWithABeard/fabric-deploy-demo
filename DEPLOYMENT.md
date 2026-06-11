@@ -1,5 +1,5 @@
 # Deployment summary
-> _fabricdeploy artifact v1.0.0 | tool 0.1.0 | generated 2026-06-10_
+> _fabricdeploy artifact v1.0.1 | tool 0.1.0 | generated 2026-06-11_
 
 This document describes, in plain language, everything this deployment will
 create. For the Well-Architected decisions behind each setting, see AUDIT.md.

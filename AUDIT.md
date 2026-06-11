@@ -1,5 +1,5 @@
 # WAF Audit Trail
-> _fabricdeploy artifact v1.0.0 | tool 0.1.0 | generated 2026-06-10_
+> _fabricdeploy artifact v1.0.1 | tool 0.1.0 | generated 2026-06-11_
 
 Profile: guarded — secure defaults enforced.
 

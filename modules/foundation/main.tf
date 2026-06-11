@@ -1,4 +1,4 @@
-# fabricdeploy artifact v1.0.0 | tool 0.1.0 | generated 2026-06-10
+# fabricdeploy artifact v1.0.1 | tool 0.1.0 | generated 2026-06-11
 # WAF: Operational Excellence + Security — core layer: resource group, Log Analytics, tags.
 # Sources: OPS-MON-001 (Monitor your environment), SEC-IDN-004 (export audit logs).
 variable "resource_group_name" { type = string }

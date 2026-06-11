@@ -1,7 +1,7 @@
 {
-  "artifact_version": "1.0.0",
+  "artifact_version": "1.0.1",
   "tool_version": "0.1.0",
-  "generated": "2026-06-10",
+  "generated": "2026-06-11",
   "profile": "guarded",
   "entries": [
     {

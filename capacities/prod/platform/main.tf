@@ -1,4 +1,4 @@
-# fabricdeploy artifact v1.0.0 | tool 0.1.0 | generated 2026-06-10
+# fabricdeploy artifact v1.0.1 | tool 0.1.0 | generated 2026-06-11
 # Platform layer for capacity 'prod' (prod).
 # Plain-English summary: ../../../DEPLOYMENT.md  ·  WAF rationale: ../../../AUDIT.md
 module "networking" {
