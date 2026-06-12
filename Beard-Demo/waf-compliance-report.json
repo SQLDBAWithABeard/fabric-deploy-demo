@@ -1,0 +1,419 @@
+{
+  "artifact_version": "1.0.0",
+  "tool_version": "0.1.0",
+  "generated": "2026-06-11",
+  "profile": "guarded",
+  "entries": [
+    {
+      "rule_id": "SEC-NET-002",
+      "pillar": "security",
+      "control": "Production capacities default to private networking",
+      "capacity": "prod",
+      "scope": "capacity",
+      "target": "-",
+      "path": "networking.public_access",
+      "value": false,
+      "action": "override-allowed",
+      "rationale": "Production data should not be publicly reachable by default.",
+      "reference": {
+        "source": "SEC-NET-002",
+        "section": "Secure network communications",
+        "line": 488,
+        "last_updated": "2026-05-14"
+      }
+    },
+    {
+      "rule_id": "SEC-NET-003",
+      "pillar": "security",
+      "control": "Restrict client IPs via workspace IP firewall (prod/confidential)",
+      "capacity": "prod",
+      "scope": "capacity",
+      "target": "-",
+      "path": "networking.ip_firewall",
+      "value": false,
+      "action": "override-allowed",
+      "rationale": "Limit which networks can reach Fabric.",
+      "reference": {
+        "source": "SEC-NET-003",
+        "section": "Secure network communications",
+        "line": 514,
+        "last_updated": "2026-05-14"
+      }
+    },
+    {
+      "rule_id": "REL-RED-001",
+      "pillar": "reliability",
+      "control": "Enable OneLake geo-replication DR feature for prod/confidential",
+      "capacity": "prod",
+      "scope": "capacity",
+      "target": "-",
+      "path": "disaster_recovery",
+      "value": false,
+      "action": "override-allowed",
+      "rationale": "Region-level redundancy for critical data.",
+      "reference": {
+        "source": "REL-RED-001",
+        "section": "Build self-healing through redundancy",
+        "line": 278,
+        "last_updated": "2026-05-14"
+      }
+    },
+    {
+      "rule_id": "OPS-OLS-001",
+      "pillar": "operational_excellence",
+      "control": "Production workspaces enable OneLake security by default",
+      "capacity": "prod",
+      "scope": "environment",
+      "target": "prod",
+      "path": "workspace.onelake_security.enabled",
+      "value": false,
+      "action": "override-allowed",
+      "rationale": "Consistent governance of production data.",
+      "reference": {
+        "source": "OPS-OLS-001",
+        "section": "Deploy changes safely",
+        "line": 992,
+        "last_updated": "2026-05-14"
+      }
+    },
+    {
+      "rule_id": "REL-SCL-001",
+      "pillar": "reliability",
+      "control": "Enable capacity surge protection for prod/confidential",
+      "capacity": "prod",
+      "scope": "capacity",
+      "target": "-",
+      "path": "surge_protection.enabled",
+      "value": true,
+      "action": "override-allowed",
+      "rationale": "Cap runaway background/overage usage; absorb spikes without surprise cost.",
+      "reference": {
+        "source": "REL-SCL-001",
+        "section": "Scale vertically and horizontally",
+        "line": 312,
+        "last_updated": "2026-05-14"
+      }
+    },
+    {
+      "rule_id": "SEC-BASE-001",
+      "pillar": "security",
+      "control": "Use the Azure security baseline (MCSB) as reference",
+      "capacity": "*",
+      "scope": "capacity",
+      "target": "-",
+      "path": "-",
+      "value": null,
+      "action": "advisory",
+      "rationale": "Baseline for controls.",
+      "reference": {
+        "source": "SEC-BASE-001",
+        "section": "Start with a baseline",
+        "line": 417,
+        "last_updated": "2026-05-14"
+      }
+    },
+    {
+      "rule_id": "SEC-IDN-002",
+      "pillar": "security",
+      "control": "Use workspace identity / service principals for external access",
+      "capacity": "*",
+      "scope": "capacity",
+      "target": "-",
+      "path": "-",
+      "value": null,
+      "action": "advisory",
+      "rationale": "No embedded credentials.",
+      "reference": {
+        "source": "SEC-IDN-002",
+        "section": "Use identity as the foundation",
+        "line": 464,
+        "last_updated": "2026-05-14"
+      }
+    },
+    {
+      "rule_id": "SEC-IDN-004",
+      "pillar": "security",
+      "control": "Export identity & audit logs to monitoring",
+      "capacity": "*",
+      "scope": "capacity",
+      "target": "-",
+      "path": "-",
+      "value": null,
+      "action": "advisory",
+      "rationale": "Detect and correlate.",
+      "reference": {
+        "source": "SEC-IDN-004",
+        "section": "Use identity as the foundation",
+        "line": 478,
+        "last_updated": "2026-05-14"
+      }
+    },
+    {
+      "rule_id": "SEC-SEC-001",
+      "pillar": "security",
+      "control": "No secrets in notebooks/scripts/pipelines; use Key Vault",
+      "capacity": "*",
+      "scope": "capacity",
+      "target": "-",
+      "path": "-",
+      "value": null,
+      "action": "advisory",
+      "rationale": "Avoid static credentials.",
+      "reference": {
+        "source": "SEC-SEC-001",
+        "section": "Secret management",
+        "line": 597,
+        "last_updated": "2026-05-14"
+      }
+    },
+    {
+      "rule_id": "SEC-SDL-001",
+      "pillar": "security",
+      "control": "Connect workspaces to Git; branch + PR + code review",
+      "capacity": "*",
+      "scope": "capacity",
+      "target": "-",
+      "path": "-",
+      "value": null,
+      "action": "advisory",
+      "rationale": "Track changes safely.",
+      "reference": {
+        "source": "SEC-SDL-001",
+        "section": "Secure Development Lifecycle",
+        "line": 652,
+        "last_updated": "2026-05-14"
+      }
+    },
+    {
+      "rule_id": "SEC-SDL-003",
+      "pillar": "security",
+      "control": "No secrets in pipeline definitions; use Key Vault references",
+      "capacity": "*",
+      "scope": "capacity",
+      "target": "-",
+      "path": "-",
+      "value": null,
+      "action": "advisory",
+      "rationale": "Protect the delivery chain.",
+      "reference": {
+        "source": "SEC-SDL-003",
+        "section": "Secure Development Lifecycle",
+        "line": 661,
+        "last_updated": "2026-05-14"
+      }
+    },
+    {
+      "rule_id": "REL-DR-001",
+      "pillar": "reliability",
+      "control": "Document DR plans; simulate failovers in non-prod",
+      "capacity": "*",
+      "scope": "capacity",
+      "target": "-",
+      "path": "-",
+      "value": null,
+      "action": "advisory",
+      "rationale": "Validate recovery.",
+      "reference": {
+        "source": "REL-DR-001",
+        "section": "Plan for disaster recovery",
+        "line": 372,
+        "last_updated": "2026-05-14"
+      }
+    },
+    {
+      "rule_id": "COST-ENV-002",
+      "pillar": "cost",
+      "control": "Non-prod: scheduled pause/resume, budget alerts, size limits",
+      "capacity": "*",
+      "scope": "capacity",
+      "target": "-",
+      "path": "-",
+      "value": null,
+      "action": "advisory",
+      "rationale": "Prevent runaway pre-prod cost.",
+      "reference": {
+        "source": "COST-ENV-002",
+        "section": "Optimize environment costs",
+        "line": 893,
+        "last_updated": "2026-05-14"
+      }
+    },
+    {
+      "rule_id": "COST-GOV-001",
+      "pillar": "cost",
+      "control": "Tag capacities/workspaces with an owner",
+      "capacity": "*",
+      "scope": "capacity",
+      "target": "-",
+      "path": "-",
+      "value": null,
+      "action": "advisory",
+      "rationale": "Accountability.",
+      "reference": {
+        "source": "COST-GOV-001",
+        "section": "Monitor costs and implement governance",
+        "line": 857,
+        "last_updated": "2026-05-14"
+      }
+    },
+    {
+      "rule_id": "OPS-IAC-001",
+      "pillar": "operational_excellence",
+      "control": "Manage Fabric via layered IaC",
+      "capacity": "*",
+      "scope": "capacity",
+      "target": "-",
+      "path": "-",
+      "value": null,
+      "action": "advisory",
+      "rationale": "Consistent, repeatable deployments.",
+      "reference": {
+        "source": "OPS-IAC-001",
+        "section": "Drive deployment through code",
+        "line": 1042,
+        "last_updated": "2026-05-14"
+      }
+    },
+    {
+      "rule_id": "OPS-MON-001",
+      "pillar": "operational_excellence",
+      "control": "Provision Workspace Monitoring + export to Log Analytics",
+      "capacity": "*",
+      "scope": "capacity",
+      "target": "-",
+      "path": "-",
+      "value": null,
+      "action": "advisory",
+      "rationale": "Retain beyond 30/14-day defaults.",
+      "reference": {
+        "source": "OPS-MON-001",
+        "section": "Monitor your environment",
+        "line": 1076,
+        "last_updated": "2026-05-14"
+      }
+    },
+    {
+      "rule_id": "OPS-DEP-002",
+      "pillar": "operational_excellence",
+      "control": "Prod releases require manual sign-off + code review + testing",
+      "capacity": "*",
+      "scope": "capacity",
+      "target": "-",
+      "path": "-",
+      "value": null,
+      "action": "advisory",
+      "rationale": "Approvals scale with risk.",
+      "reference": {
+        "source": "OPS-DEP-002",
+        "section": "Deploy changes safely",
+        "line": 1007,
+        "last_updated": "2026-05-14"
+      }
+    },
+    {
+      "rule_id": "OPS-TEST-001",
+      "pillar": "operational_excellence",
+      "control": "Use dedicated test workspaces/capacities with anonymized data",
+      "capacity": "*",
+      "scope": "capacity",
+      "target": "-",
+      "path": "-",
+      "value": null,
+      "action": "advisory",
+      "rationale": "Realistic, safe testing.",
+      "reference": {
+        "source": "OPS-TEST-001",
+        "section": "Don't assume everything works",
+        "line": 1219,
+        "last_updated": "2026-05-14"
+      }
+    },
+    {
+      "rule_id": "PERF-ISO-001",
+      "pillar": "performance",
+      "control": "Isolate heavy workloads across workspaces/capacities",
+      "capacity": "*",
+      "scope": "capacity",
+      "target": "-",
+      "path": "-",
+      "value": null,
+      "action": "advisory",
+      "rationale": "Avoid contention.",
+      "reference": {
+        "source": "PERF-ISO-001",
+        "section": "Plan capacity intentionally",
+        "line": 1278,
+        "last_updated": "2026-05-14"
+      }
+    },
+    {
+      "rule_id": "PERF-TEST-001",
+      "pillar": "performance",
+      "control": "Performance-test in a prod-like env (same SKU/region/network)",
+      "capacity": "*",
+      "scope": "capacity",
+      "target": "-",
+      "path": "-",
+      "value": null,
+      "action": "advisory",
+      "rationale": "Meaningful results.",
+      "reference": {
+        "source": "PERF-TEST-001",
+        "section": "Do performance testing",
+        "line": 1391,
+        "last_updated": "2026-05-14"
+      }
+    },
+    {
+      "rule_id": "PERF-OPT-001",
+      "pillar": "performance",
+      "control": "Optimize queries/transforms; leverage caching; medallion patterns",
+      "capacity": "*",
+      "scope": "capacity",
+      "target": "-",
+      "path": "-",
+      "value": null,
+      "action": "advisory",
+      "rationale": "Efficiency over raw size.",
+      "reference": {
+        "source": "PERF-OPT-001",
+        "section": "Optimize performance",
+        "line": 1417,
+        "last_updated": "2026-05-14"
+      }
+    }
+  ],
+  "errors": [],
+  "delivery": [
+    {
+      "rule_id": "SEC-SDL-003",
+      "control": "No secrets in pipeline definitions; use Key Vault references",
+      "reference": {
+        "source": "SEC-SDL-003",
+        "section": "Secure Development Lifecycle",
+        "line": 661,
+        "last_updated": "2026-05-14"
+      }
+    },
+    {
+      "rule_id": "OPS-DEP-002",
+      "control": "Prod releases require manual sign-off + code review + testing",
+      "reference": {
+        "source": "OPS-DEP-002",
+        "section": "Deploy changes safely",
+        "line": 1007,
+        "last_updated": "2026-05-14"
+      }
+    },
+    {
+      "rule_id": "OPS-IAC-001",
+      "control": "Manage Fabric via layered IaC",
+      "reference": {
+        "source": "OPS-IAC-001",
+        "section": "Drive deployment through code",
+        "line": 1042,
+        "last_updated": "2026-05-14"
+      }
+    }
+  ]
+}

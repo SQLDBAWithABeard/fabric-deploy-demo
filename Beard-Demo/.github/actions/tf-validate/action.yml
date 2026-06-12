@@ -1,0 +1,14 @@
+name: tf-validate
+description: terraform init -backend=false + validate
+inputs:
+  root:
+    required: true
+runs:
+  using: composite
+  steps:
+    - shell: bash
+      working-directory: ${{ inputs.root }}
+      run: |
+        set -e
+        terraform init -backend=false -input=false -no-color
+        terraform validate -no-color
