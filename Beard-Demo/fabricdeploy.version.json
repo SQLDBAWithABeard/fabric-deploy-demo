@@ -1,0 +1,14 @@
+{
+  "artifact_version": "1.0.0",
+  "tool_version": "0.1.0",
+  "config_hash": "sha256:b47ed1667b059e00b153b4c2ba860ae1f0b5d4a07d01ac7c299bef12ad57cbdb",
+  "generated": "2026-06-12",
+  "history": [
+    {
+      "version": "1.0.0",
+      "date": "2026-06-12",
+      "reason": "initial",
+      "tool": "0.1.0"
+    }
+  ]
+}
